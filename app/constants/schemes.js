@@ -3,7 +3,6 @@ const sourceSystems = require('./source-systems')
 const pillars = require('./pillars')
 const { RP00, NE00, FC00, RP10 } = require('./delivery-bodies')
 const { DRD10, DOM10, ERD14, EGF00, EXQ00, DOM00 } = require('./fund-codes')
-const { useInvoiceNumberAsIs, createStandardSchemeInvoiceNumber, createSitiAgriInvoiceNumber, createESInvoiceNumber, createIMPSInvoiceNumber, createDefaultInvoiceNumber } = require('../helpers/invoice-numbers')
 
 module.exports = Object.freeze([
   {
@@ -11,152 +10,118 @@ module.exports = Object.freeze([
     sourceSystem: sourceSystems.SFI,
     pillar: pillars.SFI,
     deliveryBody: RP00,
-    fundCode: DRD10,
-    providesAccountingValues: false,
-    createInvoiceNumber: createSitiAgriInvoiceNumber
+    fundCode: DRD10
   },
   {
     schemeId: schemeIds.SFI_PILOT,
     sourceSystem: sourceSystems.SFI_PILOT,
     pillar: pillars.SFI_PILOT,
     deliveryBody: RP00,
-    fundCode: DRD10,
-    providesAccountingValues: false,
-    createInvoiceNumber: createSitiAgriInvoiceNumber
+    fundCode: DRD10
   },
   {
     schemeId: schemeIds.LUMP_SUMS,
     sourceSystem: sourceSystems.LUMP_SUMS,
     pillar: pillars.LUMP_SUMS,
     deliveryBody: RP00,
-    fundCode: DOM10,
-    providesAccountingValues: false,
-    createInvoiceNumber: createSitiAgriInvoiceNumber
+    fundCode: DOM10
   },
   {
     schemeId: schemeIds.VET_VISITS,
     sourceSystem: sourceSystems.VET_VISITS,
     pillar: pillars.VET_VISITS,
     deliveryBody: RP00,
-    fundCode: DOM10,
-    providesAccountingValues: false,
-    createInvoiceNumber: createDefaultInvoiceNumber
+    fundCode: DOM10
   },
   {
     schemeId: schemeIds.CS,
     sourceSystem: sourceSystems.CS,
     pillar: pillars.CS,
     deliveryBody: NE00,
-    fundCode: ERD14,
-    providesAccountingValues: false,
-    createInvoiceNumber: createSitiAgriInvoiceNumber
+    fundCode: ERD14
   },
   {
     schemeId: schemeIds.BPS,
     sourceSystem: sourceSystems.BPS,
     pillar: pillars.BPS,
     deliveryBody: RP00,
-    fundCode: EGF00,
-    providesAccountingValues: false,
-    createInvoiceNumber: createSitiAgriInvoiceNumber
+    fundCode: EGF00
   },
   {
     schemeId: schemeIds.MANUAL,
     sourceSystem: sourceSystems.MANUAL,
     pillar: undefined,
     deliveryBody: RP00,
-    fundCode: DRD10,
-    providesAccountingValues: false,
-    createInvoiceNumber: useInvoiceNumberAsIs
+    fundCode: DRD10
   },
   {
     schemeId: schemeIds.ES,
     sourceSystem: sourceSystems.ES,
     pillar: pillars.ES,
     deliveryBody: NE00,
-    fundCode: EXQ00,
-    providesAccountingValues: false,
-    createInvoiceNumber: createESInvoiceNumber
+    fundCode: EXQ00
   },
   {
     schemeId: schemeIds.FC,
     sourceSystem: sourceSystems.FC,
     pillar: pillars.FC,
     deliveryBody: FC00,
-    fundCode: DOM00,
-    providesAccountingValues: false,
-    createInvoiceNumber: useInvoiceNumberAsIs
+    fundCode: DOM00
   },
   {
     schemeId: schemeIds.IMPS,
     sourceSystem: sourceSystems.IMPS,
     pillar: pillars.IMPS,
     deliveryBody: RP00,
-    fundCode: DOM00,
-    providesAccountingValues: false,
-    createInvoiceNumber: createIMPSInvoiceNumber
+    fundCode: DOM00
   },
   {
     schemeId: schemeIds.SFI23,
     sourceSystem: sourceSystems.SFI23,
     pillar: pillars.SFI23,
     deliveryBody: RP00,
-    fundCode: DRD10,
-    providesAccountingValues: false,
-    createInvoiceNumber: createSitiAgriInvoiceNumber
+    fundCode: DRD10
   },
   {
     schemeId: schemeIds.DELINKED,
     sourceSystem: sourceSystems.DELINKED,
     pillar: pillars.DELINKED,
     deliveryBody: RP00,
-    fundCode: DOM10,
-    providesAccountingValues: false,
-    createInvoiceNumber: createStandardSchemeInvoiceNumber
+    fundCode: DOM10
   },
   {
     schemeId: schemeIds.SFI_EXPANDED,
     sourceSystem: sourceSystems.SFI_EXPANDED,
     pillar: pillars.SFI_EXPANDED,
     deliveryBody: RP00,
-    fundCode: DRD10,
-    providesAccountingValues: false,
-    createInvoiceNumber: createStandardSchemeInvoiceNumber
+    fundCode: DRD10
   },
   {
     schemeId: schemeIds.COHT_REVENUE,
     sourceSystem: sourceSystems.COHT_REVENUE,
     pillar: pillars.COHT_REVENUE,
     deliveryBody: RP00,
-    fundCode: DRD10,
-    providesAccountingValues: false,
-    createInvoiceNumber: createStandardSchemeInvoiceNumber
+    fundCode: DRD10
   },
   {
     schemeId: schemeIds.COHT_CAPITAL,
     sourceSystem: sourceSystems.COHT_CAPITAL,
     pillar: pillars.COHT_CAPITAL,
     deliveryBody: RP00,
-    fundCode: DRD10,
-    providesAccountingValues: false,
-    createInvoiceNumber: createStandardSchemeInvoiceNumber
+    fundCode: DRD10
   },
   {
     schemeId: schemeIds.FPTT,
     sourceSystem: sourceSystems.FPTT,
     pillar: pillars.FPTT,
     deliveryBody: RP00,
-    fundCode: DRD10,
-    providesAccountingValues: true,
-    createInvoiceNumber: useInvoiceNumberAsIs
+    fundCode: DRD10
   },
   {
     schemeId: schemeIds.WMP,
     sourceSystem: sourceSystems.WMP,
     pillar: pillars.WMP,
     deliveryBody: RP10,
-    fundCode: DRD10,
-    providesAccountingValues: true,
-    createInvoiceNumber: useInvoiceNumberAsIs
+    fundCode: DRD10
   }
 ])

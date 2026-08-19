@@ -1,7 +1,7 @@
 const schemes = require('./constants/schemes')
 const { MANUAL } = require('./constants/scheme-ids')
 
-const getschemes = (schemeId, sourceSystem, pillar) => {
+const getSchemeProperties = (schemeId, sourceSystem, pillar) => {
   let scheme = schemeId
     ? schemes.find(item => item.schemeId === schemeId)
     : schemes.find(item => item.sourceSystem === sourceSystem)
@@ -27,5 +27,5 @@ const getschemes = (schemeId, sourceSystem, pillar) => {
 }
 
 module.exports = {
-  getschemes
+  getSchemeProperties
 }
