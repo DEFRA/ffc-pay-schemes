@@ -1,3 +1,3 @@
 const { FPTT, WMP } = require('./scheme-ids')
 
-module.export = [FPTT, WMP]
+module.exports = [FPTT, WMP]
