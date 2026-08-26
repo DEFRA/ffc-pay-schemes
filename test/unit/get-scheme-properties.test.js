@@ -22,7 +22,7 @@ describe('getSchemeProperties', () => {
   test.each(schemes)(
     'returns the properties for sourceSystem $sourceSystem when schemeId is not present',
     (expectedScheme) => {
-      expect(getSchemeProperties(undefined, expectedScheme.sourceSystem))
+      expect(getSchemeProperties(null, expectedScheme.sourceSystem))
         .toEqual(expectedScheme)
     }
   )
@@ -36,7 +36,7 @@ describe('getSchemeProperties', () => {
     const manualScheme = schemes.find(scheme => scheme.schemeId === MANUAL)
     const pillarScheme = schemes.find(scheme => scheme.pillar)
 
-    expect(getSchemeProperties(MANUAL, undefined, pillarScheme.pillar))
+    expect(getSchemeProperties(MANUAL, null, pillarScheme.pillar))
       .toEqual({
         ...manualScheme,
         pillar: pillarScheme.pillar,
@@ -48,7 +48,7 @@ describe('getSchemeProperties', () => {
   test('returns the manual scheme unchanged for an unknown pillar', () => {
     const manualScheme = schemes.find(scheme => scheme.schemeId === MANUAL)
 
-    expect(getSchemeProperties(MANUAL, undefined, 'unknown-pillar'))
+    expect(getSchemeProperties(MANUAL, null, 'unknown-pillar'))
       .toEqual(manualScheme)
   })
 })

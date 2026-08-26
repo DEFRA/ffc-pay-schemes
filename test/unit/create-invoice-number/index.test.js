@@ -107,7 +107,7 @@ describe('createInvoiceNumber', () => {
     expect(createDefaultInvoiceNumber).toHaveBeenCalledWith(request)
   })
 
-  test('returns undefined when the payment request is invalid', () => {
-    expect(createInvoiceNumber()).toBeUndefined()
+  test('returns null when the payment request is invalid', () => {
+    expect(createInvoiceNumber()).toBeNull()
   })
 })

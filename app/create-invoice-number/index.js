@@ -29,7 +29,7 @@ const createInvoiceNumber = (paymentRequest) => {
         return createDefaultInvoiceNumber(paymentRequest)
     }
   } catch {
-    return undefined
+    return null
   }
 }
 

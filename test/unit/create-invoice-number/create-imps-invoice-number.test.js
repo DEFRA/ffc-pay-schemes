@@ -18,10 +18,10 @@ describe('createIMPSInvoiceNumber', () => {
       .toBe(paymentRequest.invoiceNumber)
   })
 
-  test('returns undefined when the invoice number has no separator', () => {
+  test('returns null when the invoice number has no separator', () => {
     expect(createIMPSInvoiceNumber({
       invoiceNumber: 'INV123',
       trader: 'TRADER'
-    })).toBeUndefined()
+    })).toBeNull()
   })
 })

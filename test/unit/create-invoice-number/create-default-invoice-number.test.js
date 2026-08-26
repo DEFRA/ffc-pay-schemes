@@ -8,8 +8,8 @@ describe('createDefaultInvoiceNumber', () => {
     })).toBe('AGR123V007')
   })
 
-  test('returns undefined when required values are missing', () => {
-    expect(createDefaultInvoiceNumber({ agreementNumber: 'AGR123' })).toBeUndefined()
-    expect(createDefaultInvoiceNumber({ paymentRequestNumber: 7 })).toBeUndefined()
+  test('returns null when required values are missing', () => {
+    expect(createDefaultInvoiceNumber({ agreementNumber: 'AGR123' })).toBeNull()
+    expect(createDefaultInvoiceNumber({ paymentRequestNumber: 7 })).toBeNull()
   })
 })

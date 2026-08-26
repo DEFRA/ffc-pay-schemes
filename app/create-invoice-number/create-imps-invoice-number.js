@@ -6,6 +6,7 @@ const createIMPSInvoiceNumber = (paymentRequest) => {
     const invoiceParts = paymentRequest.invoiceNumber.split('/')
     return `${invoiceParts[0]}/${paymentRequest.trader}${invoiceParts[1]}`
   }
+  return null
 }
 
 module.exports = {

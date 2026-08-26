@@ -9,23 +9,23 @@ describe('createStandardSchemeInvoiceNumber', () => {
     })).toBe('A1234567CON123V005')
   })
 
-  test('returns undefined when the invoice number is too short', () => {
+  test('returns null when the invoice number is too short', () => {
     expect(createStandardSchemeInvoiceNumber({
       invoiceNumber: '123456',
       contractNumber: 'CON123',
       paymentRequestNumber: 5
-    })).toBeUndefined()
+    })).toBeNull()
   })
 
-  test('returns undefined when required values are missing', () => {
+  test('returns null when required values are missing', () => {
     expect(createStandardSchemeInvoiceNumber({
       invoiceNumber: 'A1234567',
       paymentRequestNumber: 5
-    })).toBeUndefined()
+    })).toBeNull()
 
     expect(createStandardSchemeInvoiceNumber({
       invoiceNumber: 'A1234567',
       contractNumber: 'CON123'
-    })).toBeUndefined()
+    })).toBeNull()
   })
 })
