@@ -18,6 +18,7 @@ const {
   createSplitInvoiceNumber,
   getAccountCodeMap,
   getSchemeBatchProperties,
+  getSchemeName,
   getSchemeProperties,
   getSchemes,
   getSourceSystem,
@@ -29,11 +30,12 @@ const {
 
 - `createInvoiceNumber(paymentRequest)` creates an invoice number for a given `paymentRequest`.
 - `createSplitInvoiceNumber(paymentRequest)` creates a split invoice number for a given `paymentRequest`.
-- `getSchemes()` returns all supported schemes as an array of objects containing `schemeId`, `schemeName` and `sourceSystem`.
-- `getSchemeBatchProperties(schemeId)` returns the batch processing properties for a given `schemeId`.
-- `getSchemeProperties(schemeId, sourceSystem, pillar)` returns the default payment properties for a scheme. A scheme can be identified by its ID or source system. The optional `pillar` can be used for manual payments.
-- `getSourceSystem(schemeId)` returns the source system name for a given `schemeId`.
 - `getAccountCodeMap(schemeId)` returns the account code mapping used for a given `schemeId`.
+- `getSchemeBatchProperties(schemeId)` returns the batch processing properties for a given `schemeId`.
+- `getSchemeName(schemeId)` returns the scheme name for a given `schemeId`.
+- `getSchemeProperties(schemeId, sourceSystem, pillar)` returns the default payment properties for a scheme. A scheme can be identified by its ID or source system. The optional `pillar` can be used for manual payments.
+- `getSchemes()` returns all supported schemes as an array of objects containing `schemeId`, `schemeName` and `sourceSystem`.
+- `getSourceSystem(schemeId)` returns the source system name for a given `schemeId`.
 - `schemeDoesNotRequirePPAs(schemeId)` returns `true` if Payment Hub does not support Post Payment Adjustments (PPAs) for a given `schemeId`; otherwise, it returns `false`.
 - `schemeProvidesAccountingValues(schemeId)` returns `true` if a given `schemeId` provides accounting values within its payment requests; otherwise, it returns `false`.
 - `schemeIds` provides the constants for all supported scheme IDs.
