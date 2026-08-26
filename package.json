@@ -1,6 +1,6 @@
 {
   "name": "ffc-pay-schemes",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Module for defining and providing details for the payment schemes supported by the Payment Hub.",
   "main": "index.js",
   "scripts": {
@@ -27,6 +27,8 @@
   "devDependencies": {
     "eslint": "9.39.5",
     "husky": "9.1.7",
+    "jest": "30.4.2",
+    "jest-junit": "17.0.0",
     "neostandard": "0.13.0"
   }
 }
