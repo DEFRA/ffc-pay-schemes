@@ -20,23 +20,25 @@ const {
   getSchemeBatchProperties,
   getSchemeProperties,
   getSchemes,
+  getSourceSystem,
   schemeDoesNotRequirePPAs,
   schemeProvidesAccountingValues,
   schemeIds
 } = require('ffc-pay-schemes')
 ```
 
-- `getSchemes()` returns all supported schemes as an array of objects containing `schemeId` and `schemeName`.
-- `getSchemeProperties(schemeId, sourceSystem, pillar)` returns the properties for a scheme. A scheme can be identified by its ID or source system. The optional `pillar` can be used for manual payments.
-- `getSchemeBatchProperties(schemeId)` returns the batch processing properties for a given `schemeId`.
-- `getAccountCodeMap(schemeId)` returns the account code mapping used for a given `schemeId`.
 - `createInvoiceNumber(paymentRequest)` creates an invoice number for a given `paymentRequest`.
 - `createSplitInvoiceNumber(paymentRequest)` creates a split invoice number for a given `paymentRequest`.
+- `getSchemes()` returns all supported schemes as an array of objects containing `schemeId`, `schemeName` and `sourceSystem`.
+- `getSchemeBatchProperties(schemeId)` returns the batch processing properties for a given `schemeId`.
+- `getSchemeProperties(schemeId, sourceSystem, pillar)` returns the default payment properties for a scheme. A scheme can be identified by its ID or source system. The optional `pillar` can be used for manual payments.
+- `getSourceSystem(schemeId)` returns the source system name for a given `schemeId`.
+- `getAccountCodeMap(schemeId)` returns the account code mapping used for a given `schemeId`.
 - `schemeDoesNotRequirePPAs(schemeId)` returns `true` if Payment Hub does not support Post Payment Adjustments (PPAs) for a given `schemeId`; otherwise, it returns `false`.
 - `schemeProvidesAccountingValues(schemeId)` returns `true` if a given `schemeId` provides accounting values within its payment requests; otherwise, it returns `false`.
 - `schemeIds` provides the constants for all supported scheme IDs.
 
-### Example
+### Examples
 
 ```js
 const {
@@ -48,15 +50,11 @@ const {
 } = require('ffc-pay-schemes')
 
 const schemes = getSchemes()
-console.log(schemes)
 
 const scheme = getSchemeProperties(schemeIds.BPS)
-console.log(scheme)
 
 const doesNotRequirePPAs = schemeDoesNotRequirePPAs(schemeIds.BPS)
 const providesAccountingValues = schemeProvidesAccountingValues(schemeIds.BPS)
-
-console.log({ doesNotRequirePPAs, providesAccountingValues })
 ```
 
 ## Licence
