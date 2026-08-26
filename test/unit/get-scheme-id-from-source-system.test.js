@@ -3,14 +3,14 @@ jest.mock('../../app/get-schemes', () => ({
 }))
 
 const { getSchemes } = require('../../app/get-schemes')
-const { getSourceSystem } = require('../../app/get-source-system')
+const { getSchemeIdFromSourceSystem } = require('../../app/get-scheme-id-from-source-system')
 
-describe('getSourceSystem', () => {
+describe('getSchemeIdFromSourceSystem', () => {
   beforeEach(() => {
     jest.clearAllMocks()
   })
 
-  test('returns the source system for a matching scheme ID', () => {
+  test('returns the schemeId for a matching source system', () => {
     getSchemes.mockReturnValue([
       {
         schemeId: 1,
@@ -19,10 +19,10 @@ describe('getSourceSystem', () => {
       }
     ])
 
-    expect(getSourceSystem(1)).toBe('Example Source')
+    expect(getSchemeIdFromSourceSystem('Example Source')).toBe(1)
   })
 
-  test('returns undefined when the scheme ID is not found', () => {
+  test('returns undefined when the source system is not found', () => {
     getSchemes.mockReturnValue([
       {
         schemeId: 1,
@@ -31,19 +31,19 @@ describe('getSourceSystem', () => {
       }
     ])
 
-    expect(getSourceSystem(2)).toBeUndefined()
+    expect(getSchemeIdFromSourceSystem('Not a real source')).toBeUndefined()
   })
 
   test('returns undefined when no schemes are available', () => {
     getSchemes.mockReturnValue([])
 
-    expect(getSourceSystem(2)).toBeUndefined()
+    expect(getSchemeIdFromSourceSystem('Not a real source')).toBeUndefined()
   })
 
   test('gets schemes before searching for the source system', () => {
     getSchemes.mockReturnValue([])
 
-    getSourceSystem(2)
+    getSchemeIdFromSourceSystem('Not a real source')
 
     expect(getSchemes).toHaveBeenCalledTimes(1)
   })

@@ -1,10 +1,10 @@
 const { getSchemes } = require('./get-schemes')
 
-const getSchemeName = (schemeId) => {
+const getSourceSystemFromSchemeId = (schemeId) => {
   const matchingScheme = getSchemes().find((scheme) => scheme.schemeId === schemeId)
-  return matchingScheme?.schemeName
+  return matchingScheme?.sourceSystem
 }
 
 module.exports = {
-  getSchemeName
+  getSourceSystemFromSchemeId
 }
