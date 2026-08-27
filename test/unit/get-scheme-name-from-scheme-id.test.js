@@ -4,6 +4,7 @@ jest.mock('../../app/get-schemes', () => ({
 
 const { getSchemes } = require('../../app/get-schemes')
 const { getSchemeNameFromSchemeId } = require('../../app/get-scheme-name-from-scheme-id')
+const { UNKNOWN } = require('../../app/constants/unknown')
 
 describe('getSchemeNameFromSchemeId', () => {
   beforeEach(() => {
@@ -22,7 +23,7 @@ describe('getSchemeNameFromSchemeId', () => {
     expect(getSchemeNameFromSchemeId(1)).toBe('Example Scheme')
   })
 
-  test('returns undefined when the scheme ID is not found', () => {
+  test('returns unknown when the scheme ID is not found', () => {
     getSchemes.mockReturnValue([
       {
         schemeId: 1,
@@ -31,13 +32,13 @@ describe('getSchemeNameFromSchemeId', () => {
       }
     ])
 
-    expect(getSchemeNameFromSchemeId(2)).toBeUndefined()
+    expect(getSchemeNameFromSchemeId(2)).toBe(UNKNOWN)
   })
 
-  test('returns undefined when no schemes are available', () => {
+  test('returns unknown when no schemes are available', () => {
     getSchemes.mockReturnValue([])
 
-    expect(getSchemeNameFromSchemeId(2)).toBeUndefined()
+    expect(getSchemeNameFromSchemeId(2)).toBe(UNKNOWN)
   })
 
   test('gets schemes before searching for the source system', () => {
