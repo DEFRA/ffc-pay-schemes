@@ -18,13 +18,16 @@ const {
   createSplitInvoiceNumber,
   getAccountCodeMap,
   getSchemeBatchProperties,
+  getSchemeIdFromSourceSystem,
+  getSchemeIds,
   getSchemeNameFromSchemeId,
+  getSchemeNames,
   getSchemeProperties,
   getSchemes,
   getSourceSystemFromSchemeId,
+  getSourceSystems,
   schemeDoesNotRequirePPAs,
-  schemeProvidesAccountingValues,
-  schemeIds
+  schemeProvidesAccountingValues
 } = require('ffc-pay-schemes')
 ```
 
@@ -33,13 +36,15 @@ const {
 - `getAccountCodeMap(schemeId)` returns the account code mapping used for a given `schemeId`.
 - `getSchemeBatchProperties(schemeId)` returns the batch processing properties for a given `schemeId`.
 - `getSchemeIdFromSourceSystem(sourceSystem)` returns the scheme ID for a given `sourceSystem`.
+- `getSchemeIds()` returns all supported scheme IDs.
 - `getSchemeNameFromSchemeId(schemeId)` returns the scheme name for a given `schemeId`.
+- `getSchemeNames()` returns all supported scheme names.
 - `getSchemeProperties(schemeId, sourceSystem, pillar)` returns the default payment properties for a scheme. A scheme can be identified by its ID or source system. The optional `pillar` can be used for manual payments.
 - `getSchemes()` returns all supported schemes as an array of objects containing `schemeId`, `schemeName` and `sourceSystem`.
 - `getSourceSystemFromSchemeId(schemeId)` returns the source system name for a given `schemeId`.
+- `getSourceSystems()` returns all supported source systems.
 - `schemeDoesNotRequirePPAs(schemeId)` returns `true` if Payment Hub does not support Post Payment Adjustments (PPAs) for a given `schemeId`; otherwise, it returns `false`.
 - `schemeProvidesAccountingValues(schemeId)` returns `true` if a given `schemeId` provides accounting values within its payment requests; otherwise, it returns `false`.
-- `schemeIds` provides the constants for all supported scheme IDs.
 
 ### Examples
 
