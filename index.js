@@ -10,6 +10,7 @@ const { getSourceSystemFromSchemeId } = require('./app/get-source-system-from-sc
 const { schemeDoesNotRequirePPAs } = require('./app/scheme-does-not-require-ppas')
 const { schemeProvidesAccountingValues } = require('./app/scheme-provides-accounting-values')
 const schemeIds = require('./app/constants/scheme-ids')
+const sourceSystems = require('./app/constants/source-systems')
 
 module.exports = {
   createInvoiceNumber,
@@ -23,5 +24,6 @@ module.exports = {
   getSourceSystemFromSchemeId,
   schemeDoesNotRequirePPAs,
   schemeProvidesAccountingValues,
-  schemeIds
+  schemeIds,
+  sourceSystems
 }
