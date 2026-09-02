@@ -50,7 +50,7 @@ module.exports = Object.freeze([
   {
     schemeId: schemeIds.MANUAL,
     sourceSystem: sourceSystems.MANUAL,
-    pillar: null,
+    pillar: pillars.MANUAL,
     deliveryBody: RP00,
     fundCode: DRD10
   },
