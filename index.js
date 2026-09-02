@@ -2,6 +2,7 @@ const { createInvoiceNumber } = require('./app/create-invoice-number')
 const { createSplitInvoiceNumber } = require('./app/create-split-invoice-number')
 const { getAccountCodeMap } = require('./app/get-account-code-map')
 const { getSchemeBatchProperties } = require('./app/get-scheme-batch-properties')
+const { getSchemeIdFromPillar } = require('./app/get-scheme-id-from-pillar')
 const { getSchemeIdFromSourceSystem } = require('./app/get-scheme-id-from-source-system')
 const { getSchemeIds } = require('./app/get-scheme-ids')
 const { getSchemeNameFromSchemeId } = require('./app/get-scheme-name-from-scheme-id')
@@ -18,6 +19,7 @@ module.exports = {
   createSplitInvoiceNumber,
   getAccountCodeMap,
   getSchemeBatchProperties,
+  getSchemeIdFromPillar,
   getSchemeIdFromSourceSystem,
   getSchemeIds,
   getSchemeNameFromSchemeId,
