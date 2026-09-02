@@ -18,6 +18,7 @@ const {
   createSplitInvoiceNumber,
   getAccountCodeMap,
   getSchemeBatchProperties,
+  getSchemeIdFromPillar,
   getSchemeIdFromSourceSystem,
   getSchemeIds,
   getSchemeNameFromSchemeId,
@@ -35,6 +36,7 @@ const {
 - `createSplitInvoiceNumber(paymentRequest)` creates a split invoice number for a given `paymentRequest`.
 - `getAccountCodeMap(schemeId)` returns the account code mapping used for a given `schemeId`.
 - `getSchemeBatchProperties(schemeId)` returns the batch processing properties for a given `schemeId`.
+- `getSchemeIdFromPillar(pillar)` returns the scheme ID for a given `pillar`.
 - `getSchemeIdFromSourceSystem(sourceSystem)` returns the scheme ID for a given `sourceSystem`.
 - `getSchemeIds()` returns all supported scheme IDs.
 - `getSchemeNameFromSchemeId(schemeId)` returns the scheme name for a given `schemeId`.
