@@ -27,6 +27,7 @@ const {
   getSchemes,
   getSourceSystemFromSchemeId,
   getSourceSystems,
+  isValidSchemeId,
   schemeDoesNotRequirePPAs,
   schemeProvidesAccountingValues
 } = require('ffc-pay-schemes')
@@ -45,6 +46,7 @@ const {
 - `getSchemes()` returns all supported schemes as an array of objects containing `schemeId`, `schemeName` and `sourceSystem`.
 - `getSourceSystemFromSchemeId(schemeId)` returns the source system name for a given `schemeId`.
 - `getSourceSystems()` returns all supported source systems.
+- `isValidSchemeId(schemeId)` returns `true` if the scheme ID is recognised, or `false` if not, including converting the scheme ID to a numeric value first if required.
 - `schemeDoesNotRequirePPAs(schemeId)` returns `true` if Payment Hub does not support Post Payment Adjustments (PPAs) for a given `schemeId`; otherwise, it returns `false`.
 - `schemeProvidesAccountingValues(schemeId)` returns `true` if a given `schemeId` provides accounting values within its payment requests; otherwise, it returns `false`.
 
