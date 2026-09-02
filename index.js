@@ -11,6 +11,7 @@ const { getSchemeProperties } = require('./app/get-scheme-properties')
 const { getSchemes } = require('./app/get-schemes')
 const { getSourceSystemFromSchemeId } = require('./app/get-source-system-from-scheme-id')
 const { getSourceSystems } = require('./app/get-source-systems')
+const { isValidSchemeId } = require('./app/is-valid-scheme-id')
 const { schemeDoesNotRequirePPAs } = require('./app/scheme-does-not-require-ppas')
 const { schemeProvidesAccountingValues } = require('./app/scheme-provides-accounting-values')
 
@@ -28,6 +29,7 @@ module.exports = {
   getSchemes,
   getSourceSystemFromSchemeId,
   getSourceSystems,
+  isValidSchemeId,
   schemeDoesNotRequirePPAs,
   schemeProvidesAccountingValues
 }
