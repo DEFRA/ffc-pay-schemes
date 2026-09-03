@@ -1,4 +1,5 @@
 const { getSchemes } = require('../../app/get-schemes')
+const pillars = require('../../app/constants/pillars')
 const schemeIds = require('../../app/constants/scheme-ids')
 const schemeNames = require('../../app/constants/scheme-names')
 const sourceSystems = require('../../app/constants/source-systems')
@@ -9,7 +10,8 @@ describe('getSchemes', () => {
       Object.keys(schemeIds).map((schemeKey) => ({
         schemeId: schemeIds[schemeKey],
         schemeName: schemeNames[schemeKey],
-        sourceSystem: sourceSystems[schemeKey]
+        sourceSystem: sourceSystems[schemeKey],
+        pillar: pillars[schemeKey]
       }))
     )
   })
@@ -20,7 +22,8 @@ describe('getSchemes', () => {
       expect(getSchemes()).toContainEqual({
         schemeId: schemeIds[schemeKey],
         schemeName: schemeNames[schemeKey],
-        sourceSystem: sourceSystems[schemeKey]
+        sourceSystem: sourceSystems[schemeKey],
+        pillar: pillars[schemeKey]
       })
     }
   )

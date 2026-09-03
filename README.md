@@ -43,7 +43,7 @@ const {
 - `getSchemeNameFromSchemeId(schemeId)` returns the scheme name for a given `schemeId`.
 - `getSchemeNames()` returns all supported scheme names.
 - `getSchemeProperties(schemeId, sourceSystem, pillar)` returns the default payment properties for a scheme. A scheme can be identified by its ID or source system. The optional `pillar` can be used for manual payments.
-- `getSchemes()` returns all supported schemes as an array of objects containing `schemeId`, `schemeName` and `sourceSystem`.
+- `getSchemes()` returns all supported schemes as an array of objects containing `schemeId`, `schemeName`, `sourceSystem` and `pillar`.
 - `getSourceSystemFromSchemeId(schemeId)` returns the source system name for a given `schemeId`.
 - `getSourceSystems()` returns all supported source systems.
 - `isValidSchemeId(schemeId)` returns `true` if the scheme ID is recognised, or `false` if not, including converting the scheme ID to a numeric value first if required.
