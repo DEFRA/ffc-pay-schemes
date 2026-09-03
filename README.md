@@ -17,6 +17,7 @@ const {
   createInvoiceNumber,
   createSplitInvoiceNumber,
   getAccountCodeMap,
+  getReportingDataFilter,
   getSchemeBatchProperties,
   getSchemeIdFromPillar,
   getSchemeIdFromSourceSystem,
@@ -27,6 +28,7 @@ const {
   getSchemes,
   getSourceSystemFromSchemeId,
   getSourceSystems,
+  isFRPS,
   isValidSchemeId,
   schemeDoesNotRequirePPAs,
   schemeProvidesAccountingValues
@@ -36,6 +38,7 @@ const {
 - `createInvoiceNumber(paymentRequest)` creates an invoice number for a given `paymentRequest`.
 - `createSplitInvoiceNumber(paymentRequest)` creates a split invoice number for a given `paymentRequest`.
 - `getAccountCodeMap(schemeId)` returns the account code mapping used for a given `schemeId`.
+- `getReportingDataFilter(schemeId)` returns the fields which should be added to any data filters applied in reporting checks, for a given `schemeId`.
 - `getSchemeBatchProperties(schemeId)` returns the batch processing properties for a given `schemeId`.
 - `getSchemeIdFromPillar(pillar)` returns the scheme ID for a given `pillar`.
 - `getSchemeIdFromSourceSystem(sourceSystem)` returns the scheme ID for a given `sourceSystem`.
@@ -46,6 +49,7 @@ const {
 - `getSchemes()` returns all supported schemes as an array of objects containing `schemeId`, `schemeName`, `sourceSystem` and `pillar`.
 - `getSourceSystemFromSchemeId(schemeId)` returns the source system name for a given `schemeId`.
 - `getSourceSystems()` returns all supported source systems.
+- `isFRPS(schemeId)` returns `true` if the scheme ID comes from FRPS, or `false` if not.
 - `isValidSchemeId(schemeId)` returns `true` if the scheme ID is recognised, or `false` if not, including converting the scheme ID to a numeric value first if required.
 - `schemeDoesNotRequirePPAs(schemeId)` returns `true` if Payment Hub does not support Post Payment Adjustments (PPAs) for a given `schemeId`; otherwise, it returns `false`.
 - `schemeProvidesAccountingValues(schemeId)` returns `true` if a given `schemeId` provides accounting values within its payment requests; otherwise, it returns `false`.
