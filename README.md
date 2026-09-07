@@ -29,6 +29,7 @@ const {
   getSourceSystemFromSchemeId,
   getSourceSystems,
   isFRPS,
+  isSitiAgri,
   isValidSchemeId,
   schemeDoesNotRequirePPAs,
   schemeProvidesAccountingValues
@@ -50,6 +51,7 @@ const {
 - `getSourceSystemFromSchemeId(schemeId)` returns the source system name for a given `schemeId`.
 - `getSourceSystems()` returns all supported source systems.
 - `isFRPS(schemeId)` returns `true` if the scheme ID comes from FRPS, or `false` if not.
+- `isSitiAgri(schemeId)` returns `true` if the scheme ID comes from Siti Agri, or `false` if not.
 - `isValidSchemeId(schemeId)` returns `true` if the scheme ID is recognised, or `false` if not, including converting the scheme ID to a numeric value first if required.
 - `schemeDoesNotRequirePPAs(schemeId)` returns `true` if Payment Hub does not support Post Payment Adjustments (PPAs) for a given `schemeId`; otherwise, it returns `false`.
 - `schemeProvidesAccountingValues(schemeId)` returns `true` if a given `schemeId` provides accounting values within its payment requests; otherwise, it returns `false`.
@@ -72,6 +74,26 @@ const scheme = getSchemeProperties(schemeIds.BPS)
 const doesNotRequirePPAs = schemeDoesNotRequirePPAs(schemeIds.BPS)
 const providesAccountingValues = schemeProvidesAccountingValues(schemeIds.BPS)
 ```
+
+## Payment Hub usage
+
+The following services are intended to be used with the ffc-pay-schemes package:
+
+- ffc-pay-alerting
+- ffc-pay-batch-processor
+- ffc-pay-dps
+- ffc-pay-enrichment
+- ffc-pay-event-hub
+- ffc-pay-gateway
+- ffc-pay-injection
+- ffc-pay-processing
+- ffc-pay-request-editor
+- ffc-pay-submission
+- ffc-pay-tracking
+- ffc-pay-web
+- ffc-pay-xb
+
+In the event a new payment scheme is added to the package, all of the above services must be bumped to the latest package version to ensure that Payment Hub can process associated payments.
 
 ## Licence
 

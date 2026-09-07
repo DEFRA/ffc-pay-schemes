@@ -1,34 +1,36 @@
+jest.mock('../../../app/helpers/is-siti-agri', () => ({
+  isSitiAgri: jest.fn()
+}))
+
+const { isSitiAgri } = require('../../../app/helpers/is-siti-agri')
 const { createSplitInvoiceNumber } = require('../../../app/create-split-invoice-number')
 const { createDefaultInvoiceNumber } = require('../../../app/create-split-invoice-number/create-default-invoice-number')
 const { createSitiAgriInvoiceNumber } = require('../../../app/create-split-invoice-number/create-siti-agri-invoice-number')
-const schemeIds = require('../../../app/constants/scheme-ids')
 
 describe('createSplitInvoiceNumber', () => {
   const invoiceNumber = '1234567890123'
   const splitId = 'A'
-  const sitiAgriSchemes = [
-    'SFI',
-    'SFI_PILOT',
-    'LUMP_SUMS',
-    'SFI23',
-    'DELINKED',
-    'SFI_EXPANDED'
-  ]
+  const schemeId = 'SFI'
 
-  test.each(Object.entries(schemeIds))(
-    'uses the correct invoice format for %s',
-    (schemeKey, schemeId) => {
-      const expectedInvoiceNumber = sitiAgriSchemes.includes(schemeKey)
-        ? createSitiAgriInvoiceNumber(invoiceNumber, splitId)
-        : createDefaultInvoiceNumber(invoiceNumber, splitId)
+  beforeEach(() => {
+    jest.clearAllMocks()
+  })
 
-      expect(createSplitInvoiceNumber(invoiceNumber, splitId, schemeId))
-        .toBe(expectedInvoiceNumber)
-    }
-  )
+  test('uses the Siti Agri invoice format when the scheme is Siti Agri', () => {
+    isSitiAgri.mockReturnValue(true)
 
-  test('uses the default format for an unknown schemeId', () => {
-    expect(createSplitInvoiceNumber(invoiceNumber, splitId, 'unknown-scheme'))
+    expect(createSplitInvoiceNumber(invoiceNumber, splitId, schemeId))
+      .toBe(createSitiAgriInvoiceNumber(invoiceNumber, splitId))
+
+    expect(isSitiAgri).toHaveBeenCalledWith(schemeId)
+  })
+
+  test('uses the default invoice format when the scheme is not Siti Agri', () => {
+    isSitiAgri.mockReturnValue(false)
+
+    expect(createSplitInvoiceNumber(invoiceNumber, splitId, schemeId))
       .toBe(createDefaultInvoiceNumber(invoiceNumber, splitId))
+
+    expect(isSitiAgri).toHaveBeenCalledWith(schemeId)
   })
 })
