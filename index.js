@@ -13,6 +13,7 @@ const { getSchemes } = require('./app/scheme-properties/get-schemes')
 const { getSourceSystemFromSchemeId } = require('./app/source-system/get-source-system-from-scheme-id')
 const { getSourceSystems } = require('./app/source-system/get-source-systems')
 const { isFRPS } = require('./app/helpers/is-frps')
+const { isSitiAgri } = require('./app/helpers/is-siti-agri')
 const { isValidSchemeId } = require('./app/helpers/is-valid-scheme-id')
 const { schemeDoesNotRequirePPAs } = require('./app/helpers/scheme-does-not-require-ppas')
 const { schemeProvidesAccountingValues } = require('./app/helpers/scheme-provides-accounting-values')
@@ -33,6 +34,7 @@ module.exports = {
   getSourceSystemFromSchemeId,
   getSourceSystems,
   isFRPS,
+  isSitiAgri,
   isValidSchemeId,
   schemeDoesNotRequirePPAs,
   schemeProvidesAccountingValues
