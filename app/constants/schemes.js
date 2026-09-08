@@ -1,6 +1,7 @@
+const fileMasks = require('./file-masks')
+const pillars = require('./pillars')
 const schemeIds = require('./scheme-ids')
 const sourceSystems = require('./source-systems')
-const pillars = require('./pillars')
 const { RP00, NE00, FC00, RP10 } = require('./delivery-bodies')
 const { DRD10, DOM10, ERD14, EGF00, EXQ00, DOM00 } = require('./fund-codes')
 
@@ -10,21 +11,24 @@ module.exports = Object.freeze([
     sourceSystem: sourceSystems.SFI,
     pillar: pillars.SFI,
     deliveryBody: RP00,
-    fundCode: DRD10
+    fundCode: DRD10,
+    fileMask: fileMasks.SFI
   },
   {
     schemeId: schemeIds.SFI_PILOT,
     sourceSystem: sourceSystems.SFI_PILOT,
     pillar: pillars.SFI_PILOT,
     deliveryBody: RP00,
-    fundCode: DRD10
+    fundCode: DRD10,
+    fileMask: fileMasks.SFI_PILOT
   },
   {
     schemeId: schemeIds.LUMP_SUMS,
     sourceSystem: sourceSystems.LUMP_SUMS,
     pillar: pillars.LUMP_SUMS,
     deliveryBody: RP00,
-    fundCode: DOM10
+    fundCode: DOM10,
+    fileMask: fileMasks.LUMP_SUMS
   },
   {
     schemeId: schemeIds.VET_VISITS,
@@ -38,14 +42,16 @@ module.exports = Object.freeze([
     sourceSystem: sourceSystems.CS,
     pillar: pillars.CS,
     deliveryBody: NE00,
-    fundCode: ERD14
+    fundCode: ERD14,
+    fileMask: fileMasks.CS
   },
   {
     schemeId: schemeIds.BPS,
     sourceSystem: sourceSystems.BPS,
     pillar: pillars.BPS,
     deliveryBody: RP00,
-    fundCode: EGF00
+    fundCode: EGF00,
+    fileMask: fileMasks.BPS
   },
   {
     schemeId: schemeIds.MANUAL,
@@ -59,42 +65,48 @@ module.exports = Object.freeze([
     sourceSystem: sourceSystems.ES,
     pillar: pillars.ES,
     deliveryBody: NE00,
-    fundCode: EXQ00
+    fundCode: EXQ00,
+    fileMask: fileMasks.ES
   },
   {
     schemeId: schemeIds.FC,
     sourceSystem: sourceSystems.FC,
     pillar: pillars.FC,
     deliveryBody: FC00,
-    fundCode: DOM00
+    fundCode: DOM00,
+    fileMask: fileMasks.FC
   },
   {
     schemeId: schemeIds.IMPS,
     sourceSystem: sourceSystems.IMPS,
     pillar: pillars.IMPS,
     deliveryBody: RP00,
-    fundCode: DOM00
+    fundCode: DOM00,
+    fileMask: fileMasks.IMPS
   },
   {
     schemeId: schemeIds.SFI23,
     sourceSystem: sourceSystems.SFI23,
     pillar: pillars.SFI23,
     deliveryBody: RP00,
-    fundCode: DRD10
+    fundCode: DRD10,
+    fileMask: fileMasks.SFI23
   },
   {
     schemeId: schemeIds.DELINKED,
     sourceSystem: sourceSystems.DELINKED,
     pillar: pillars.DELINKED,
     deliveryBody: RP00,
-    fundCode: DOM10
+    fundCode: DOM10,
+    fileMask: fileMasks.DELINKED
   },
   {
     schemeId: schemeIds.SFI_EXPANDED,
     sourceSystem: sourceSystems.SFI_EXPANDED,
     pillar: pillars.SFI_EXPANDED,
     deliveryBody: RP00,
-    fundCode: DRD10
+    fundCode: DRD10,
+    fileMask: fileMasks.SFI_EXPANDED
   },
   {
     schemeId: schemeIds.COHT_REVENUE,
@@ -108,7 +120,8 @@ module.exports = Object.freeze([
     sourceSystem: sourceSystems.COHT_CAPITAL,
     pillar: pillars.COHT_CAPITAL,
     deliveryBody: RP00,
-    fundCode: DRD10
+    fundCode: DRD10,
+    fileMask: fileMasks.COHT_CAPITAL
   },
   {
     schemeId: schemeIds.FPTT,

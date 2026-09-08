@@ -17,8 +17,10 @@ const {
   createInvoiceNumber,
   createSplitInvoiceNumber,
   getAccountCodeMap,
+  getBatchSequenceFromFileName,
   getReportingDataFilter,
   getSchemeBatchProperties,
+  getSchemeFromBatchFileName,
   getSchemeIdFromPillar,
   getSchemeIdFromSourceSystem,
   getSchemeIds,
@@ -39,8 +41,10 @@ const {
 - `createInvoiceNumber(paymentRequest)` creates an invoice number for a given `paymentRequest`.
 - `createSplitInvoiceNumber(paymentRequest)` creates a split invoice number for a given `paymentRequest`.
 - `getAccountCodeMap(schemeId)` returns the account code mapping used for a given `schemeId`.
+- `getBatchSequenceFromFileName(schemeId, fileName)` returns the sequence as identified in the supplied `fileName`, checking the correct position using the `schemeId`.
 - `getReportingDataFilter(schemeId)` returns the fields which should be added to any data filters applied in reporting checks, for a given `schemeId`.
 - `getSchemeBatchProperties(schemeId)` returns the batch processing properties for a given `schemeId`.
+- `getSchemeFromBatchFileName(fileName)` returns the supported scheme details based on the expected file mask matching the supplied `fileName`.
 - `getSchemeIdFromPillar(pillar)` returns the scheme ID for a given `pillar`.
 - `getSchemeIdFromSourceSystem(sourceSystem)` returns the scheme ID for a given `sourceSystem`.
 - `getSchemeIds()` returns all supported scheme IDs.
