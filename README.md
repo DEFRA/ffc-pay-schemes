@@ -18,6 +18,7 @@ const {
   createSplitInvoiceNumber,
   getAccountCodeMap,
   getBatchSequenceFromFileName,
+  getJournalSourceFromPillar,
   getReportingDataFilter,
   getSchemeBatchProperties,
   getSchemeFromBatchFileName,
@@ -42,6 +43,7 @@ const {
 - `createSplitInvoiceNumber(paymentRequest)` creates a split invoice number for a given `paymentRequest`.
 - `getAccountCodeMap(schemeId)` returns the account code mapping used for a given `schemeId`.
 - `getBatchSequenceFromFileName(schemeId, fileName)` returns the sequence as identified in the supplied `fileName`, checking the correct position using the `schemeId`.
+- `getJournalSourceFromPillar(schemeId, source, pillar)` returns the appropriate manual source used in Payment journals for manual schemes, based on the supplied `pillar`. If `schemeId` is not the MANUAL scheme, or a match is not found, the supplied `source` will be returned.
 - `getReportingDataFilter(schemeId)` returns the fields which should be added to any data filters applied in reporting checks, for a given `schemeId`.
 - `getSchemeBatchProperties(schemeId)` returns the batch processing properties for a given `schemeId`.
 - `getSchemeFromBatchFileName(fileName)` returns the supported scheme details based on the expected file mask matching the supplied `fileName`.
@@ -65,18 +67,20 @@ const {
 ```js
 const {
   getSchemes,
+  getSchemeIds,
   getSchemeProperties,
   schemeDoesNotRequirePPAs,
-  schemeProvidesAccountingValues,
-  schemeIds
+  schemeProvidesAccountingValues
 } = require('ffc-pay-schemes')
 
 const schemes = getSchemes()
 
-const scheme = getSchemeProperties(schemeIds.BPS)
+const { BPS } = getSchemeIds()
 
-const doesNotRequirePPAs = schemeDoesNotRequirePPAs(schemeIds.BPS)
-const providesAccountingValues = schemeProvidesAccountingValues(schemeIds.BPS)
+const scheme = getSchemeProperties(BPS)
+
+const doesNotRequirePPAs = schemeDoesNotRequirePPAs(BPS)
+const providesAccountingValues = schemeProvidesAccountingValues(BPS)
 ```
 
 ## Payment Hub usage
@@ -85,7 +89,6 @@ The following services are intended to be used with the ffc-pay-schemes package:
 
 - ffc-pay-alerting
 - ffc-pay-batch-processor
-- ffc-pay-dps
 - ffc-pay-enrichment
 - ffc-pay-event-hub
 - ffc-pay-gateway
@@ -95,7 +98,6 @@ The following services are intended to be used with the ffc-pay-schemes package:
 - ffc-pay-submission
 - ffc-pay-tracking
 - ffc-pay-web
-- ffc-pay-xb
 
 In the event a new payment scheme is added to the package, all of the above services must be bumped to the latest package version to ensure that Payment Hub can process associated payments.
 
