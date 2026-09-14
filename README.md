@@ -19,6 +19,8 @@ const {
   getAccountCodeMap,
   getBatchSequenceFromFileName,
   getJournalSourceFromPillar,
+  getPillarFromSchemeId,
+  getPillars,
   getReportingDataFilter,
   getSchemeBatchProperties,
   getSchemeFromBatchFileName,
@@ -44,6 +46,8 @@ const {
 - `getAccountCodeMap(schemeId)` returns the account code mapping used for a given `schemeId`.
 - `getBatchSequenceFromFileName(schemeId, fileName)` returns the sequence as identified in the supplied `fileName`, checking the correct position using the `schemeId`.
 - `getJournalSourceFromPillar(schemeId, source, pillar)` returns the appropriate manual source used in Payment journals for manual schemes, based on the supplied `pillar`. If `schemeId` is not the MANUAL scheme, or a match is not found, the supplied `source` will be returned.
+- `getPillarFromSchemeId(schemeId)` returns the pillar name for a given `schemeId`.
+- `getPillars()` returns all supported pillars.
 - `getReportingDataFilter(schemeId)` returns the fields which should be added to any data filters applied in reporting checks, for a given `schemeId`.
 - `getSchemeBatchProperties(schemeId)` returns the batch processing properties for a given `schemeId`.
 - `getSchemeFromBatchFileName(fileName)` returns the supported scheme details based on the expected file mask matching the supplied `fileName`.
