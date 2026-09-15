@@ -142,6 +142,7 @@ module.exports = Object.freeze([
     sourceSystem: sourceSystems.SFI26,
     pillar: pillars.SFI26,
     deliveryBody: RP00,
-    fundCode: DRD10
+    fundCode: DRD10,
+    fileMask: fileMasks.SFI26
   }
 ])

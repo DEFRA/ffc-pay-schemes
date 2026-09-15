@@ -106,6 +106,48 @@ The following services are intended to be used with the ffc-pay-schemes package:
 
 In the event a new payment scheme is added to the package, all of the above services must be bumped to the latest package version to ensure that Payment Hub can process associated payments.
 
+## Scheme onboarding process
+
+See the linked PR for an example of how to onboard a payment scheme with batch files to the ffc-pay-schemes package:
+
+<https://github.com/DEFRA/ffc-pay-schemes/pull/16>
+
+The below breakdown details all steps required for a general scheme onboarding:
+
+- Add the scheme's pillar name to `app/constants/pillars.js` - this allows the pillar to be recognised for manual payments in `ffc-pay-injection`
+- Add the manual source name for the scheme to `app/constants/manual-sources.js` - this defines the `source` name to use in D365 journals for manual payments for the scheme, created by `ffc-pay-submission`
+- Add the scheme batch properties to `app/constants/scheme-batch-properties.js` - this defines the naming convention for D365 journals for the scheme, created by `ffc-pay-submission`
+- Add the new scheme ID to `app/constants/scheme-ids.js` - this is the glue that holds payment processing together
+- Add the scheme name to `app/constants/scheme-names.js` - this is how the scheme will be referred to in all frontend services, and in system logs
+- Add the default scheme properties to `app/constants/schemes.js` - this is the primary driver for scheme defaults as read by `ffc-pay-enrichment`
+- Add the source system to `app/constants/source-systems.js` - this is how the scheme will be recognised by `ffc-pay-enrichment`, and allow the scheme ID to be determined
+- Add the scheme ID to the correct function in `app/create-invoice-number/index.js` - this is how the D365 formatted invoice number will be calculated in `ffc-pay-enrichment`
+- Add the scheme ID to the mapping in `app/get-account-code-map/index.js` - this is how account codes will be assigned to invoice lines with different description codes in `ffc-pay-processing` - this is only usually called for PPAs, but for good practice it should be determined for all schemes
+
+For all schemes supporting batch file ingestion:
+
+- Add details of the file mask to `app/constants/file-masks.js` - this should be the file mask as read by `ffc-pay-batch-processor`, and allows the service to recognise the file to be processed.
+- Add the file mask to the default scheme properties in `app/constants/schemes.js` - this is referenced by `ffc-pay-batch-processor`
+- Add the position of the sequence number within the payment file to `app/constants/sequence-positions.js` - as used by `ffc-pay-batch-processor` to determine the correct sequence number of the file for processing
+
+For all schemes delivered via FRPS:
+
+- Add the scheme ID to `app/constants/frps-schemes.js` - this allows services to understand if it has been delivered by FRPS, helping with numerous helpers for FRPS specific behaviours
+
+For all schemes delivered via Siti Agri:
+
+- Add the scheme ID to `app/constants/siti-agri-schemes.js` - this allows services to understand if it has been delivered by Siti Agri, helping with numerous helpers for Siti Agri specific behaviours
+
+For all schemes which do not support PPAs:
+
+- Add the scheme ID to `app/constants/schemes-not-requiring-ppas.js` - this tells `ffc-pay-processing` not to calculate PPAs
+
+For all schemes whichg provide accounting values:
+
+- Add the scheme ID to `app/constants/schemes-providing-account-values.js` - this tells `ffc-pay-enrichment` to mark the payment request as providing accounting values, and enables correct value reporting in Payment Hub reports
+
+Completing all of these steps as required should allow Payment Hub to support payments for a new payment scheme, assuming there are no specific behaviours that differ from a general payment scheme.
+
 ## Licence
 
 THIS INFORMATION IS LICENSED UNDER THE CONDITIONS OF THE OPEN GOVERNMENT
