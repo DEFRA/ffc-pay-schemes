@@ -99,6 +99,7 @@ The following services are intended to be used with the ffc-pay-schemes package:
 - ffc-pay-injection
 - ffc-pay-processing
 - ffc-pay-request-editor
+- ffc-pay-responses
 - ffc-pay-submission
 - ffc-pay-tracking
 - ffc-pay-web

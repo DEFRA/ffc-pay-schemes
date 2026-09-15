@@ -35,7 +35,8 @@ const {
   COHT_CAPITAL,
   COHT_REVENUE,
   FPTT,
-  WMP
+  WMP,
+  SFI26
 } = require('./pillars')
 
 module.exports = {
@@ -75,5 +76,6 @@ module.exports = {
   [COHT_CAPITAL]: 'PMAN_COHTC',
   [COHT_REVENUE]: 'PMAN_COHTR',
   [FPTT]: 'PMAN_FPTT',
-  [WMP]: 'PMAN_WMP'
+  [WMP]: 'PMAN_WMP',
+  [SFI26]: 'PMAN_SFI26'
 }

@@ -10,5 +10,6 @@ module.exports = {
   SFI23: /^SITISFIA\d{4}_AP_\d*.dat$/,
   DELINKED: /^SITIDP\d{4}_AP_\d*.dat$/,
   SFI_EXPANDED: /^ESFIO\d{4}_AP_\d*.dat$/,
-  COHT_CAPITAL: /^SITICOHTC\d{4}_AP_\d*.dat$/
+  COHT_CAPITAL: /^SITICOHTC\d{4}_AP_\d*.dat$/,
+  SFI26: /^SITISFI26\d{4}_AP_\d*.dat$/
 }

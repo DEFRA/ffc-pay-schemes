@@ -9,5 +9,6 @@ module.exports = {
   SFI23: 8,
   DELINKED: 6,
   SFI_EXPANDED: 5,
-  COHT_CAPITAL: 9
+  COHT_CAPITAL: 9,
+  SFI26: 9
 }

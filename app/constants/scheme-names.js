@@ -15,5 +15,6 @@ module.exports = {
   COHT_REVENUE: 'Combined Offer Higher Tier (Revenue)',
   COHT_CAPITAL: 'Combined Offer Higher Tier (Capital)',
   FPTT: 'Farm Payments Technical Test',
-  WMP: 'Woodland Management Plan'
+  WMP: 'Woodland Management Plan',
+  SFI26: 'Sustainable Farming Incentive 26'
 }

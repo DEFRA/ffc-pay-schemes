@@ -136,5 +136,12 @@ module.exports = Object.freeze([
     pillar: pillars.WMP,
     deliveryBody: RP10,
     fundCode: DRD10
+  },
+  {
+    schemeId: schemeIds.SFI26,
+    sourceSystem: sourceSystems.SFI26,
+    pillar: pillars.SFI26,
+    deliveryBody: RP00,
+    fundCode: DRD10
   }
 ])

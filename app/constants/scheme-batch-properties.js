@@ -102,5 +102,11 @@ module.exports = Object.freeze([
     prefix: 'FFCFALS_WMP',
     suffix: ' (FALS_WMP)',
     source: 'FALS_WMP'
+  },
+  {
+    schemeId: schemeIds.SFI26,
+    prefix: 'FFCSITISFI26',
+    suffix: ' (SITISFI26)',
+    source: 'SITISFI26'
   }
 ])
