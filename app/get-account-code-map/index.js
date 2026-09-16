@@ -11,7 +11,8 @@ const {
   COHT_REVENUE,
   COHT_CAPITAL,
   FPTT,
-  WMP
+  WMP,
+  SFI26
 } = require('../constants/scheme-ids')
 
 const defaultMap = require('./default-map')
@@ -36,7 +37,8 @@ const schemeMap = new Map([
   [COHT_REVENUE, defaultMap],
   [COHT_CAPITAL, cohtcMap],
   [FPTT, sfiFrpsMap],
-  [WMP, sfiFrpsMap]
+  [WMP, sfiFrpsMap],
+  [SFI26, sfiFrpsMap]
 ])
 
 const getAccountCodeMap = (schemeId) => {
