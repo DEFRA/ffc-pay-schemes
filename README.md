@@ -130,6 +130,8 @@ For all schemes supporting batch file ingestion:
 - Add the file mask to the default scheme properties in `app/constants/schemes.js` - this is referenced by `ffc-pay-batch-processor`
 - Add the position of the sequence number within the payment file to `app/constants/sequence-positions.js` - as used by `ffc-pay-batch-processor` to determine the correct sequence number of the file for processing
 
+> Remember that ffc-pay-gateway must still be updated with the inbound file path, server name, and other configuration. See <https://github.com/DEFRA/ffc-pay-gateway/pull/78> for an example.
+
 For all schemes delivered via FRPS:
 
 - Add the scheme ID to `app/constants/frps-schemes.js` - this allows services to understand if it has been delivered by FRPS, helping with numerous helpers for FRPS specific behaviours
@@ -142,7 +144,7 @@ For all schemes which do not support PPAs:
 
 - Add the scheme ID to `app/constants/schemes-not-requiring-ppas.js` - this tells `ffc-pay-processing` not to calculate PPAs
 
-For all schemes whichg provide accounting values:
+For all schemes which provide accounting values:
 
 - Add the scheme ID to `app/constants/schemes-providing-account-values.js` - this tells `ffc-pay-enrichment` to mark the payment request as providing accounting values, and enables correct value reporting in Payment Hub reports
 
