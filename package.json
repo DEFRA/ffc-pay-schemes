@@ -1,6 +1,6 @@
 {
   "name": "ffc-pay-schemes",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Module for defining and providing details for the payment schemes supported by the Payment Hub.",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,8 @@
   },
   "author": "Defra DDTS",
   "contributors": [
-    "Sam Plackett samuel.plackett@atos.ai"
+    "Sam Plackett samuel.plackett@atos.ai",
+    "Leigh Godson leigh.godson@atos.ai"
   ],
   "license": "OGL-UK-3.0",
   "bugs": {
