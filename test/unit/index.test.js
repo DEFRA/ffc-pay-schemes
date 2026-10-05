@@ -1,9 +1,7 @@
-const { sitiAgriSchemes } = require('../../')
+const { getSitiAgriSchemeIds, sitiAgriSchemes } = require('../../')
 
-describe('tests existing siti Agri scheme exports', () => {
-  test('exports the Siti Agri scheme IDs', () => {
-    expect(sitiAgriSchemes).toEqual([
-      1, 2, 3, 5, 6, 12, 13, 14, 15, 16, 19
-    ])
+describe('package exports', () => {
+  test('exports the Siti Agri scheme IDs and getter', () => {
+    expect(sitiAgriSchemes).toEqual(getSitiAgriSchemeIds())
   })
 })

@@ -62,6 +62,7 @@ const {
 - `getSourceSystems()` returns all supported source systems.
 - `isFRPS(schemeId)` returns `true` if the scheme ID comes from FRPS, or `false` if not.
 - `isSitiAgri(schemeId)` returns `true` if the scheme ID comes from Siti Agri, or `false` if not.
+- `getSitiAgriSchemeIds()` returns all Siti Agri scheme IDs.
 - `isValidSchemeId(schemeId)` returns `true` if the scheme ID is recognised, or `false` if not, including converting the scheme ID to a numeric value first if required.
 - `schemeDoesNotRequirePPAs(schemeId)` returns `true` if Payment Hub does not support Post Payment Adjustments (PPAs) for a given `schemeId`; otherwise, it returns `false`.
 - `schemeProvidesAccountingValues(schemeId)` returns `true` if a given `schemeId` provides accounting values within its payment requests; otherwise, it returns `false`.

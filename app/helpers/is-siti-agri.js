@@ -5,6 +5,5 @@ const isSitiAgri = (schemeId) => {
 }
 
 module.exports = {
-  isSitiAgri,
-  sitiAgriSchemes
+  isSitiAgri
 }
