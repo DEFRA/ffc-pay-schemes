@@ -17,7 +17,6 @@ const { getSchemeProperties } = require('./app/scheme-properties/get-scheme-prop
 const { getSchemes } = require('./app/scheme-properties/get-schemes')
 const { getSourceSystemFromSchemeId } = require('./app/source-system/get-source-system-from-scheme-id')
 const { getSourceSystems } = require('./app/source-system/get-source-systems')
-const sitiAgriSchemes = require('./app/constants/siti-agri-schemes')
 const { isFRPS } = require('./app/helpers/is-frps')
 const { isSitiAgri } = require('./app/helpers/is-siti-agri')
 const { getSitiAgriSchemeIds } = require('./app/helpers/get-siti-agri-scheme-ids')
@@ -47,7 +46,6 @@ module.exports = {
   getSourceSystems,
   isFRPS,
   isSitiAgri,
-  sitiAgriSchemes,
   getSitiAgriSchemeIds,
   isValidSchemeId,
   schemeDoesNotRequirePPAs,
