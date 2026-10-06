@@ -42,11 +42,11 @@ module.exports = {
   getSchemeNames,
   getSchemeProperties,
   getSchemes,
+  getSitiAgriSchemeIds,
   getSourceSystemFromSchemeId,
   getSourceSystems,
   isFRPS,
   isSitiAgri,
-  getSitiAgriSchemeIds,
   isValidSchemeId,
   schemeDoesNotRequirePPAs,
   schemeProvidesAccountingValues
