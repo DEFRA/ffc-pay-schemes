@@ -4,10 +4,6 @@ jest.mock('../../../app/constants/scheme-ids', () => ({
   FPTT: 18
 }))
 
-jest.mock('../../../app/constants/sequence-positions', () => ({
-  SFI: 6
-}))
-
 const {
   getBatchSequenceFromFileName
 } = require('../../../app/helpers/get-batch-sequence-from-file-name')
@@ -16,7 +12,7 @@ const schemeIds = require('../../../app/constants/scheme-ids')
 
 describe('getBatchSequenceFromFileName', () => {
   test('returns the sequence using the scheme sequence position', () => {
-    const fileName = 'prefix12345678.csv'
+    const fileName = 'prefix012345678.csv'
 
     expect(
       getBatchSequenceFromFileName(schemeIds.SFI, fileName)

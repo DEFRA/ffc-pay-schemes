@@ -15,6 +15,7 @@ const { getSchemeNameFromSchemeId } = require('./app/scheme-name/get-scheme-name
 const { getSchemeNames } = require('./app/scheme-name/get-scheme-names')
 const { getSchemeProperties } = require('./app/scheme-properties/get-scheme-properties')
 const { getSchemes } = require('./app/scheme-properties/get-schemes')
+const { getSitiAgriSchemeIds } = require('./app/helpers/get-siti-agri-scheme-ids')
 const { getSourceSystemFromSchemeId } = require('./app/source-system/get-source-system-from-scheme-id')
 const { getSourceSystems } = require('./app/source-system/get-source-systems')
 const { isFRPS } = require('./app/helpers/is-frps')
@@ -41,6 +42,7 @@ module.exports = {
   getSchemeNames,
   getSchemeProperties,
   getSchemes,
+  getSitiAgriSchemeIds,
   getSourceSystemFromSchemeId,
   getSourceSystems,
   isFRPS,
