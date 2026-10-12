@@ -15,12 +15,13 @@ const { getSchemeNameFromSchemeId } = require('./app/scheme-name/get-scheme-name
 const { getSchemeNames } = require('./app/scheme-name/get-scheme-names')
 const { getSchemeProperties } = require('./app/scheme-properties/get-scheme-properties')
 const { getSchemes } = require('./app/scheme-properties/get-schemes')
-const { getSitiAgriSchemeIds } = require('./app/helpers/get-siti-agri-scheme-ids')
+const { getSitiAgriSchemeIds } = require('./app/scheme-id/get-siti-agri-scheme-ids')
+const { getSitiAgriSchemes } = require('./app/scheme-properties/get-siti-agri-schemes')
 const { getSourceSystemFromSchemeId } = require('./app/source-system/get-source-system-from-scheme-id')
 const { getSourceSystems } = require('./app/source-system/get-source-systems')
 const { isFRPS } = require('./app/helpers/is-frps')
 const { isSitiAgri } = require('./app/helpers/is-siti-agri')
-const { isValidSchemeId } = require('./app/helpers/is-valid-scheme-id')
+const { isValidSchemeId } = require('./app/scheme-id/is-valid-scheme-id')
 const { schemeDoesNotRequirePPAs } = require('./app/helpers/scheme-does-not-require-ppas')
 const { schemeProvidesAccountingValues } = require('./app/helpers/scheme-provides-accounting-values')
 
@@ -43,6 +44,7 @@ module.exports = {
   getSchemeProperties,
   getSchemes,
   getSitiAgriSchemeIds,
+  getSitiAgriSchemes,
   getSourceSystemFromSchemeId,
   getSourceSystems,
   isFRPS,

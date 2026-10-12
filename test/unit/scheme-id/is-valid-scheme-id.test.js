@@ -1,5 +1,5 @@
 const schemeIds = require('../../../app/constants/scheme-ids')
-const { isValidSchemeId } = require('../../../app/helpers/is-valid-scheme-id')
+const { isValidSchemeId } = require('../../../app/scheme-id/is-valid-scheme-id')
 
 describe('isValidSchemeId', () => {
   test.each(Object.values(schemeIds))(
