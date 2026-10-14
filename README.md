@@ -17,6 +17,7 @@ npm install --save ffc-pay-schemes
 - `getAccountCodeMap(schemeId)` returns the account code mapping used for a given `schemeId`.
 - `getBatchSequenceFromFileName(schemeId, fileName)` returns the sequence as identified in the supplied `fileName`, checking the correct position using the `schemeId`.
 - `getDeliveryBodyFromSchemeId(schemeId)` returns the default delivery body for the provided `schemeId`.
+- `getFundCodeFromSchemeId(schemeId)` returns the default fund code for the provided `schemeId`.
 - `getJournalSourceFromPillar(schemeId, source, pillar)` returns the appropriate manual source used in Payment journals for manual schemes, based on the supplied `pillar`. If `schemeId` is not the MANUAL scheme, or a match is not found, the supplied `source` will be returned.
 - `getPillarFromSchemeId(schemeId)` returns the pillar name for a given `schemeId`.
 - `getPillars()` returns all supported pillars.
