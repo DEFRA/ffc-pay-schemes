@@ -12,41 +12,12 @@ npm install --save ffc-pay-schemes
 
 ## Available functions
 
-```js
-const {
-  createInvoiceNumber,
-  createSplitInvoiceNumber,
-  getAccountCodeMap,
-  getBatchSequenceFromFileName,
-  getJournalSourceFromPillar,
-  getPillarFromSchemeId,
-  getPillars,
-  getReportingDataFilter,
-  getSchemeBatchProperties,
-  getSchemeFromBatchFileName,
-  getSchemeIdFromPillar,
-  getSchemeIdFromSourceSystem,
-  getSchemeIds,
-  getSchemeNameFromSchemeId,
-  getSchemeNames,
-  getSchemeProperties,
-  getSchemes,
-  getSitiAgriSchemeIds,
-  getSitiAgriSchemes,
-  getSourceSystemFromSchemeId,
-  getSourceSystems,
-  isFRPS,
-  isSitiAgri,
-  isValidSchemeId,
-  schemeDoesNotRequirePPAs,
-  schemeProvidesAccountingValues
-} = require('ffc-pay-schemes')
-```
-
 - `createInvoiceNumber(paymentRequest)` creates an invoice number for a given `paymentRequest`.
 - `createSplitInvoiceNumber(paymentRequest)` creates a split invoice number for a given `paymentRequest`.
 - `getAccountCodeMap(schemeId)` returns the account code mapping used for a given `schemeId`.
 - `getBatchSequenceFromFileName(schemeId, fileName)` returns the sequence as identified in the supplied `fileName`, checking the correct position using the `schemeId`.
+- `getDeliveryBodyFromSchemeId(schemeId)` returns the default delivery body for the provided `schemeId`.
+- `getFundCodeFromSchemeId(schemeId)` returns the default fund code for the provided `schemeId`.
 - `getJournalSourceFromPillar(schemeId, source, pillar)` returns the appropriate manual source used in Payment journals for manual schemes, based on the supplied `pillar`. If `schemeId` is not the MANUAL scheme, or a match is not found, the supplied `source` will be returned.
 - `getPillarFromSchemeId(schemeId)` returns the pillar name for a given `schemeId`.
 - `getPillars()` returns all supported pillars.
@@ -71,7 +42,7 @@ const {
 - `schemeDoesNotRequirePPAs(schemeId)` returns `true` if Payment Hub does not support Post Payment Adjustments (PPAs) for a given `schemeId`; otherwise, it returns `false`.
 - `schemeProvidesAccountingValues(schemeId)` returns `true` if a given `schemeId` provides accounting values within its payment requests; otherwise, it returns `false`.
 
-### Examples
+## Example usage
 
 ```js
 const {
@@ -92,10 +63,11 @@ const doesNotRequirePPAs = schemeDoesNotRequirePPAs(BPS)
 const providesAccountingValues = schemeProvidesAccountingValues(BPS)
 ```
 
-## Payment Hub usage
+## Payment Hub
 
-The following services are intended to be used with the ffc-pay-schemes package:
+The following microservices are intended to be used with the ffc-pay-schemes package:
 
+- fcp-pds-web
 - ffc-pay-alerting
 - ffc-pay-batch-processor
 - ffc-pay-enrichment
@@ -111,7 +83,7 @@ The following services are intended to be used with the ffc-pay-schemes package:
 
 In the event a new payment scheme is added to the package, all of the above services must be bumped to the latest package version to ensure that Payment Hub can process associated payments.
 
-## Scheme onboarding process
+### Payment Hub scheme onboarding process
 
 See the linked PR for an example of how to onboard a payment scheme with batch files to the ffc-pay-schemes package:
 
