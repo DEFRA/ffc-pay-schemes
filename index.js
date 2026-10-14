@@ -2,6 +2,7 @@ const { createInvoiceNumber } = require('./app/create-invoice-number')
 const { createSplitInvoiceNumber } = require('./app/create-split-invoice-number')
 const { getAccountCodeMap } = require('./app/get-account-code-map')
 const { getBatchSequenceFromFileName } = require('./app/helpers/get-batch-sequence-from-file-name')
+const { getDeliveryBodyFromSchemeId } = require('./app/helpers/get-delivery-body-from-scheme-id')
 const { getJournalSourceFromPillar } = require('./app/helpers/get-journal-source-from-pillar')
 const { getPillarFromSchemeId } = require('./app/pillar/get-pillar-from-scheme-id')
 const { getPillars } = require('./app/pillar/get-pillars')
@@ -30,6 +31,7 @@ module.exports = {
   createSplitInvoiceNumber,
   getAccountCodeMap,
   getBatchSequenceFromFileName,
+  getDeliveryBodyFromSchemeId,
   getJournalSourceFromPillar,
   getPillarFromSchemeId,
   getPillars,
