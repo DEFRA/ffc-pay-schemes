@@ -53,7 +53,7 @@ const {
 - `getReportingDataFilter(schemeId)` returns the fields which should be added to any data filters applied in reporting checks, for a given `schemeId`.
 - `getSchemeBatchProperties(schemeId)` returns the batch processing properties for a given `schemeId`.
 - `getSchemeFromBatchFileName(fileName)` returns the supported scheme details based on the expected file mask matching the supplied `fileName`.
-- `getSchemeIdFromPillar(pillar)` returns the scheme ID for a given `pillar`.
+- `getSchemeIdFromPillar(pillar)` returns the scheme ID for a given `pillar`. Note the pillar match is case insensitive, i.e. `sfi26` and `Sfi26` will both match with `SFI26`.
 - `getSchemeIdFromSourceSystem(sourceSystem)` returns the scheme ID for a given `sourceSystem`.
 - `getSchemeIds()` returns all supported scheme IDs.
 - `getSchemeNameFromSchemeId(schemeId)` returns the scheme name for a given `schemeId`.
