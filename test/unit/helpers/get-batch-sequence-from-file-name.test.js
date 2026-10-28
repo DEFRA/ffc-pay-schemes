@@ -1,7 +1,13 @@
 jest.mock('../../../app/constants/scheme-ids', () => ({
   SFI: 1,
+  CS: 5,
   IMPS: 11,
   FPTT: 18
+}))
+
+jest.mock('../../../app/constants/sequence-positions', () => ({
+  SFI: 7,
+  CS: 6
 }))
 
 const {
@@ -19,9 +25,46 @@ describe('getBatchSequenceFromFileName', () => {
     ).toBe(1234)
   })
 
+  test.each([
+    ['SITICS0001_AP_20260327111757.dat', 1],
+    ['SITICS9999_AP_20260327111757.dat', 9999],
+    ['SITICS10000_AP_20260327111757.dat', 10000],
+    ['SITICS99999_AP_20260327111757.dat', 99999]
+  ])(
+    'returns the CS sequence from %s',
+    (fileName, expectedSequence) => {
+      expect(
+        getBatchSequenceFromFileName(
+          schemeIds.CS,
+          fileName
+        )
+      ).toBe(expectedSequence)
+    }
+  )
+
+  test.each([
+    'SITICS001_AP_20260327111757.dat',
+    'SITICS999_AP_20260327111757.dat',
+    'SITICS100000_AP_20260327111757.dat',
+    'SITICS999990_AP_20260327111757.dat'
+  ])(
+    'throws when CS filename %s does not contain a 4 or 5 digit sequence',
+    fileName => {
+      expect(() =>
+        getBatchSequenceFromFileName(
+          schemeIds.CS,
+          fileName
+        )
+      ).toThrow(`Invalid CS sequence in filename: ${fileName}`)
+    }
+  )
+
   test('returns the IMPS sequence between the final underscore and dot', () => {
     expect(
-      getBatchSequenceFromFileName(schemeIds.IMPS, 'IMPS_batch_5678.csv')
+      getBatchSequenceFromFileName(
+        schemeIds.IMPS,
+        'IMPS_batch_5678.csv'
+      )
     ).toBe(5678)
   })
 
@@ -36,7 +79,10 @@ describe('getBatchSequenceFromFileName', () => {
 
   test('throws when the scheme ID is unknown', () => {
     expect(() =>
-      getBatchSequenceFromFileName(1000, 'filename.csv')
+      getBatchSequenceFromFileName(
+        1000,
+        'filename.csv'
+      )
     ).toThrow('Unknown schemeId: 1000')
   })
 
@@ -46,6 +92,8 @@ describe('getBatchSequenceFromFileName', () => {
         schemeIds.FPTT,
         'filename.csv'
       )
-    ).toThrow(`No sequence position found for schemeId: ${schemeIds.FPTT}`)
+    ).toThrow(
+      `No sequence position found for schemeId: ${schemeIds.FPTT}`
+    )
   })
 })
