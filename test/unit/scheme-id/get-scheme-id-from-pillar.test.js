@@ -23,6 +23,34 @@ describe('getSchemeIdFromPillar', () => {
     expect(getSchemeIdFromPillar('Example Pillar')).toBe(1)
   })
 
+  test('matches the pillar regardless of case', () => {
+    getSchemes.mockReturnValue([
+      {
+        schemeId: 2,
+        schemeName: 'Example Scheme',
+        sourceSystem: 'Example Source',
+        pillar: 'Example Pillar'
+      }
+    ])
+
+    expect(getSchemeIdFromPillar('example pillar')).toBe(2)
+    expect(getSchemeIdFromPillar('EXAMPLE PILLAR')).toBe(2)
+  })
+
+  test('treats nullish pillar values as empty strings when comparing', () => {
+    getSchemes.mockReturnValue([
+      {
+        schemeId: 3,
+        schemeName: 'Example Scheme',
+        sourceSystem: 'Example Source',
+        pillar: undefined
+      }
+    ])
+
+    expect(getSchemeIdFromPillar(undefined)).toBe(3)
+    expect(getSchemeIdFromPillar('')).toBe(3)
+  })
+
   test('returns undefined when the pillar is not found', () => {
     getSchemes.mockReturnValue([
       {

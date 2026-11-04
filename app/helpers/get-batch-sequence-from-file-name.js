@@ -26,6 +26,17 @@ const getBatchSequenceFromFileName = (schemeId, fileName) => {
     throw new Error(`No sequence position found for schemeId: ${schemeId}`)
   }
 
+  if (schemeId === schemeIds.CS) {
+    const sequenceEnd = fileName.indexOf('_', sequenceStart)
+    const sequence = fileName.substring(sequenceStart, sequenceEnd)
+
+    if (!/^\d{4,5}$/.test(sequence)) {
+      throw new Error(`Invalid CS sequence in filename: ${fileName}`)
+    }
+
+    return Number(sequence)
+  }
+
   return Number(fileName.substr(sequenceStart, SEQUENCE_LENGTH))
 }
 
