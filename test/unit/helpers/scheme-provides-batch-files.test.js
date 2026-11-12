@@ -1,6 +1,6 @@
-const { schemeProvidesBatchFiles } = require('../scheme-provides-batch-files')
+const { schemeProvidesBatchFiles } = require('../../../app/helpers/scheme-provides-batch-files')
 
-describe('schemeProvidesBatchFiles', () => {
+describe('scheme provides batch files', () => {
   test('returns true when the scheme has a file mask', () => {
     expect(schemeProvidesBatchFiles(1)).toBe(true)
   })
