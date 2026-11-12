@@ -41,6 +41,7 @@ npm install --save ffc-pay-schemes
 - `isValidSchemeId(schemeId)` returns `true` if the scheme ID is recognised, or `false` if not, including converting the scheme ID to a numeric value first if required.
 - `schemeDoesNotRequirePPAs(schemeId)` returns `true` if Payment Hub does not support Post Payment Adjustments (PPAs) for a given `schemeId`; otherwise, it returns `false`.
 - `schemeProvidesAccountingValues(schemeId)` returns `true` if a given `schemeId` provides accounting values within its payment requests; otherwise, it returns `false`.
+- `schemeProvidesBatchFiles(schemeId)` returns `true` if a given `schemeId` has a configured file mask, and therefore provides batch files; otherwise, it returns `false`. If the `schemeId` is not recognised, it throws an error.
 
 ## Example usage
 

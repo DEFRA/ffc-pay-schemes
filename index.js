@@ -26,6 +26,7 @@ const { isSitiAgri } = require('./app/helpers/is-siti-agri')
 const { isValidSchemeId } = require('./app/scheme-id/is-valid-scheme-id')
 const { schemeDoesNotRequirePPAs } = require('./app/helpers/scheme-does-not-require-ppas')
 const { schemeProvidesAccountingValues } = require('./app/helpers/scheme-provides-accounting-values')
+const { schemeProvidesBatchFiles } = require('./app/helpers/scheme-provides-batch-files')
 
 module.exports = {
   createInvoiceNumber,
@@ -55,5 +56,6 @@ module.exports = {
   isSitiAgri,
   isValidSchemeId,
   schemeDoesNotRequirePPAs,
-  schemeProvidesAccountingValues
+  schemeProvidesAccountingValues,
+  schemeProvidesBatchFiles
 }
